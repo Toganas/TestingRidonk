@@ -1,0 +1,34 @@
+.One {
+  margin-top: 2em;
+  max-width: 100%;
+}
+
+.jumbotron {
+  background-color: #fff;
+}
+
+.breadcrumb {
+  justify-content: center;
+}
+
+.view:hover {
+  color: black;
+}
+
+.height {
+  height: 110px;
+}
+
+.welcome {
+  font-size: 20px;
+}
+
+#storyBlue {
+  color: #f31818;
+}
+
+#view {
+  color: #f31818;
+}
+@media screen and (max-width: 412px) {
+}

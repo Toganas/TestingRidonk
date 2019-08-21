@@ -1,0 +1,7 @@
+export const GET_ERRORS = "GET_ERRORS";
+export const USER_LOADING = "USER_LOADING";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const FETCH_STORIES = "FETCH_STORIES";
+export const CREATE_STORIES = "CREATE_STORIES";
+export const DELETE_STORIES = "DELETE_STORIES";
+export const FIND_BY_CAT = "FIND_BY_CAT";
