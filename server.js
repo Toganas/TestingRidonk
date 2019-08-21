@@ -18,19 +18,19 @@ app.use(express.json());
 
 
 // MONGOOSE
-// mongoose
-//     .connect(
-//         db,
-//         { useNewUrlParser: true }
-//     )
-//     .then(() => console.log("MongoDB successfully connected"))
-//     .catch(err => console.log(err));
+mongoose
+    .connect(
+        db,
+        { useNewUrlParser: true }
+    )
+    .then(() => console.log("MongoDB successfully connected"))
+    .catch(err => console.log(err));
 
 // HEROKU TESTING
 // If deployed, use the deployed database. Otherwise use the local ridonkstories database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ridonkStories";
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ridonkStories";
 
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 
 // PASSPORT
 app.use(passport.initialize());
