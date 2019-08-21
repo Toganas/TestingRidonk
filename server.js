@@ -27,7 +27,7 @@ app.use(express.json());
 //     .catch(err => console.log(err));
 
 // HEROKU TESTING
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+// If deployed, use the deployed database. Otherwise use the local ridonkstories database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ridonkStories";
 
 mongoose.connect(MONGODB_URI);
