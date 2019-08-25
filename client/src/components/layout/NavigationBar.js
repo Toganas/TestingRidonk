@@ -17,17 +17,17 @@ class NavigationBar extends Component {
 
     componentDidMount() {
         fetch("/api/story").then(res =>
-            //     res.json()).then(data => {
-            //     data.forEach(ele => {
-            //         if (this.state.category.indexOf(ele.category) === -1 && ele.category !== "Other") {
-            //             return this.setState({ category: [...this.state.category, ele.category] })
-            //         }
-            //     })
-            // }
-            res.text()
-        )
-            .then(text => console.log(text))
-        console.log(this.state.category)
+            res.json()).then(data => {
+                data.forEach(ele => {
+                    if (this.state.category.indexOf(ele.category) === -1 && ele.category !== "Other") {
+                        return this.setState({ category: [...this.state.category, ele.category] })
+                    }
+                })
+            }
+                // res.text()
+            )
+        // .then(text => console.log(text))
+        // console.log(this.state.category)
     }
 
 
@@ -35,13 +35,8 @@ class NavigationBar extends Component {
     render() {
         return (
             <div>
-
-
-
-
-
                 <Navbar>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/">
                         <img
                             alt=""
                             src={logo}
@@ -84,9 +79,7 @@ class NavigationBar extends Component {
                                         <Nav.Link href="/login">Log In</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
-
                                         <Nav.Link href="/register">Sign up</Nav.Link>
-
                                     </Nav.Item>
 
                                 </Nav>
