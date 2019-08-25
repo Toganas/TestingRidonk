@@ -16,13 +16,17 @@ class NavigationBar extends Component {
     }
 
     componentDidMount() {
-        fetch("/api/story").then(res => res.json()).then(data => {
-            data.forEach(ele => {
-                if (this.state.category.indexOf(ele.category) === -1 && ele.category !== "Other") {
-                    return this.setState({ category: [...this.state.category, ele.category] })
-                }
-            })
-        })
+        fetch("/api/story").then(res =>
+            //     res.json()).then(data => {
+            //     data.forEach(ele => {
+            //         if (this.state.category.indexOf(ele.category) === -1 && ele.category !== "Other") {
+            //             return this.setState({ category: [...this.state.category, ele.category] })
+            //         }
+            //     })
+            // }
+            res.text()
+        )
+            .then(text => console.log(text))
         console.log(this.state.category)
     }
 
