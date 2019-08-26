@@ -5,7 +5,7 @@ import history from "../history";
 export const createStories = formValues => {
     return async (dispatch, getState) => {
         const { user } = getState().auth;
-        const response = await axios.post("https://ridonk-stories.herokuapp.com/api/story/", { ...formValues, user });
+        const response = await axios.post("/api/story/", { ...formValues, user });
         dispatch({ type: CREATE_STORIES, payload: response.data })
     }
 };
@@ -13,14 +13,14 @@ export const createStories = formValues => {
 export const fetchStories = () => {
     return async dispatch => {
 
-        const response = await axios.get("https://ridonk-stories.herokuapp.com/api/story/")
+        const response = await axios.get("/api/story/")
         dispatch({ type: FETCH_STORIES, payload: response.data });
     }
 };
 
 export const findByCat = cat => {
     return async dispatch => {
-        const response = await axios.get(`https://ridonk-stories.herokuapp.com/api/story/${cat}`);
+        const response = await axios.get(`api/story/${cat}`);
         dispatch({ type: FIND_BY_CAT, payload: response })
     }
 }
