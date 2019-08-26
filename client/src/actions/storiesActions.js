@@ -21,14 +21,15 @@ export const fetchStories = () => {
 export const findByCat = cat => {
     return async dispatch => {
         const response = await axios.get(`api/story/${cat}`);
+        // eslint-disable-next-line no-undef
         dispatch({ type: FIND_BY_CAT, payload: response })
     }
 }
 
-// export const deleteStories = id => {
-//     return async dispatch => {
-//         await axios.delete(`/api/story/${id}`);
-//         dispatch({ type: DELETE_STORIES, payload: id });
-//         history.push("/")
-//     }
-// }
+export const deleteStories = id => {
+    return async dispatch => {
+        await axios.delete(`/api/story/${id}`);
+        dispatch({ type: DELETE_STORIES, payload: id });
+        history.push("/")
+    }
+}
