@@ -5,8 +5,6 @@ router.route("/")
     .get(storyController.findAll)
     .post(storyController.create);
 
-// api/story/remove/:id
-// Deletes story by id
 
 // api/story/:cat
 // find all stories with category

@@ -26,11 +26,6 @@ mongoose
     .then(() => console.log("MongoDB successfully connected"))
     .catch(err => console.log(err));
 
-// HEROKU TESTING
-// If deployed, use the deployed database. Otherwise use the local ridonkstories database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ridonkStories";
-
-// mongoose.connect(MONGODB_URI);
 
 // PASSPORT
 app.use(passport.initialize());
@@ -40,11 +35,6 @@ require("./config/passport")(passport);
 app.use(routes);
 
 // HEROKU
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("client/build"));
-
-// }
-
 // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
     // Set static folder
