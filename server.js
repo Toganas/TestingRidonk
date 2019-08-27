@@ -32,7 +32,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 //ROUTES
-app.use(routes);
+// app.use(routes);
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/story", require("./routes/api/story"))
 
