@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3001;
 
 // MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json({ extended: false }));
 
 // PASSPORT
 app.use(passport.initialize());
