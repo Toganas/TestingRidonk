@@ -5,6 +5,8 @@ const passport = require("passport");
 const routes = require("./routes/index");
 const path = require("path")
 
+const users = require("./routes/api/users");
+
 //START EXPRESS
 const app = express();
 
@@ -20,9 +22,12 @@ app.use(express.json());
 
 // PASSPORT
 app.use(passport.initialize());
+
+// Passport config
 require("./config/passport")(passport);
 
 //ROUTES
+app.use("/api/users", users)
 app.use(routes);
 
 // HEROKU
