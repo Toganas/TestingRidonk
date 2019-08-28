@@ -42,13 +42,17 @@ class ShareStories extends Component {
     // Press submit button
     handleFormSubmit = event => {
         event.preventDefault();
+        // ////////////////////////////////////////////////////////////////////////////
+        // COMMENTED OUT UNTIL LOGIN IS FIXED
         // If no user is logged in.
-        if (this.state.userId === undefined) {
-            this.setState({
-                msg: "Sorry, you must be logged in to post a story."
-            })
-            // User is logged in and has input something for the title and story.  Category is defaulted to something
-        } else if (this.state.title && this.state.story && this.state.category) {
+        // if (this.state.userId === undefined) {
+        //     this.setState({
+        //         msg: "Sorry, you must be logged in to post a story."
+        //     })
+        // User is logged in and has input something for the title and story.  Category is defaulted to something
+        // } else 
+        // ////////////////////////////////////////////////////////////////////////////
+        if (this.state.title && this.state.story && this.state.category) {
             StoryAPI.saveStory({
                 userId: this.state.user,
                 title: this.state.title,

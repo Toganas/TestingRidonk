@@ -2,7 +2,6 @@
 const express = require("express");
 const connectDB = require("./config/db")
 const passport = require("passport");
-const routes = require("./routes/index");
 const path = require("path")
 
 const users = require("./routes/api/users");
