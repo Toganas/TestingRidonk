@@ -1,13 +1,15 @@
 //DEPENDENCIES
 const express = require("express");
-const mongoose = require("mongoose");
+const connectDB = require("./config/db")
 const passport = require("passport");
 const routes = require("./routes/index");
-const db = require("./config/keys").mongoURI;
 const path = require("path")
 
 //START EXPRESS
 const app = express();
+
+// CONNECT DATABASE
+connectDB();
 
 //PORT
 const PORT = process.env.PORT || 3001;
@@ -15,17 +17,6 @@ const PORT = process.env.PORT || 3001;
 // MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
-// MONGOOSE
-mongoose
-    .connect(
-        db,
-        { useNewUrlParser: true }
-    )
-    .then(() => console.log("MongoDB successfully connected"))
-    .catch(err => console.log(err));
-
 
 // PASSPORT
 app.use(passport.initialize());
