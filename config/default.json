@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://Deepali:Jaimatadi1@cluster0-qrqyf.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://Deepali:Jaimatadi1@cluster0-qrqyf.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
 }
