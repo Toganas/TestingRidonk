@@ -6,6 +6,7 @@ const path = require("path")
 
 const users = require("./routes/api/users");
 const story = require("./routes/api/story");
+const auth = require("./routes/api/auth");
 //START EXPRESS
 const app = express();
 
@@ -28,6 +29,7 @@ require("./config/passport")(passport);
 //ROUTES
 app.use("/api/users", users);
 app.use("/api/story", story);
+app.use("/api/auth", auth)
 
 // HEROKU
 // Serve static assets in production
