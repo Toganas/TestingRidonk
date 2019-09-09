@@ -11,7 +11,8 @@ const User = require("../../models/User");
 // @access  Private
 router.post("/", [auth,
     [
-        check("text", "Text is required")
+        check("title", "Title is required").not().isEmpty(),
+        check("story", "Story is required").not().isEmpty()
     ]
 ],
     async (req, res) => {
@@ -22,8 +23,9 @@ router.post("/", [auth,
 
         try {
             const newStory = new Story({
+                title: req.body.title,
                 story: req.body.story,
-                title: req.body.title
+                category: req.body.category
             })
 
             const story = await newStory.save();
