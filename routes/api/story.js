@@ -72,6 +72,56 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+// @route   PUT api/story/lol/:id
+// @desc    LoL a story
+// @access  Private
+router.put("/lol/:id", auth, async (req, res) => {
+    try {
+        const story = await Story.findById(req.params.id);
+
+        // Check if the post has already been lol'ed
+        if (story.lol.filter(lol => lol.user.toString() === req.user.id).length > 0) {
+            return res.status(400).json({ msg: "Story already lol'ed" });
+        }
+
+        story.lol.unshift({ user: req.user.id });
+
+        await story.save();
+
+        res.json(story.lol)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error")
+    }
+});
+
+// @route   PUT api/story/unlol/:id
+// @desc    unLoL a story
+// @access  Private
+router.put("/unlol/:id", auth, async (req, res) => {
+    try {
+        const story = await Story.findById(req.params.id);
+
+        // Check if the story has already been lol'ed
+        if (story.lol.filter(lol => lol.user.toString() === req.user.id).length === 0) {
+            return res.status(400).json({ msg: "Story has not yet been lol'ed" });
+        }
+
+        // Get remove index
+        const removeIndex = story.lol.map(lol => lol.user.toString()).indexOf(req.user.id);
+
+        story.lol.splice(removeIndex, 1);
+
+        await story.save();
+
+        res.json(story.lol);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error")
+    }
+});
+
+
 /////////////////////
 // BEGIN ORIGINAL STORY ROUTE
 ////////////////////
